@@ -1,0 +1,2188 @@
+<div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a
+
+        href="https://github.com/keithwhor/nodal"
+
+    >nodal (v0.13.4)</a>
+</h1>
+<h4>An API Server and Framework for node.js</h4>
+<div class="apidocSectionDiv"><a
+    href="#apidoc.tableOfContents"
+    id="apidoc.tableOfContents"
+><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.nodal">module nodal</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nodal.Application">
+            function <span class="apidocSignatureSpan">nodal.</span>Application
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nodal.Controller">
+            function <span class="apidocSignatureSpan">nodal.</span>Controller
+            <span class="apidocSignatureSpan">(value)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nodal.Daemon">
+            function <span class="apidocSignatureSpan">nodal.</span>Daemon
+            <span class="apidocSignatureSpan">(cpus)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nodal.Database">
+            function <span class="apidocSignatureSpan">nodal.</span>Database
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nodal.GraphQuery">
+            function <span class="apidocSignatureSpan">nodal.</span>GraphQuery
+            <span class="apidocSignatureSpan">(used for testing)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nodal.ItemArray">
+            function <span class="apidocSignatureSpan">nodal.</span>ItemArray
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nodal.Migration">
+            function <span class="apidocSignatureSpan">nodal.</span>Migration
+            <span class="apidocSignatureSpan">(db)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nodal.Model">
+            function <span class="apidocSignatureSpan">nodal.</span>Model
+            <span class="apidocSignatureSpan">(modelData, fromStorage, fromSeed)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nodal.ModelArray">
+            function <span class="apidocSignatureSpan">nodal.</span>ModelArray
+            <span class="apidocSignatureSpan">(modelConstructor)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nodal.ModelFactory">
+            function <span class="apidocSignatureSpan">nodal.</span>ModelFactory
+            <span class="apidocSignatureSpan">(modelConstructor)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nodal.RelationshipGraph">
+            function <span class="apidocSignatureSpan">nodal.</span>RelationshipGraph
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nodal.Router">
+            function <span class="apidocSignatureSpan">nodal.</span>Router
+            <span class="apidocSignatureSpan">{{signature}}</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nodal.Scheduler">
+            function <span class="apidocSignatureSpan">nodal.</span>Scheduler
+            <span class="apidocSignatureSpan">{{signature}}</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nodal.SchemaGenerator">
+            function <span class="apidocSignatureSpan">nodal.</span>SchemaGenerator
+            <span class="apidocSignatureSpan">(db)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nodal.require">
+            function <span class="apidocSignatureSpan">nodal.</span>require
+            <span class="apidocSignatureSpan">(filename)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">nodal.</span>API</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">nodal.</span>CLI</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">nodal.</span>Mime</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">nodal.</span>Mime.charsets</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">nodal.</span>env</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">nodal.</span>include</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">nodal.</span>mocha</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">nodal.</span>my</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.nodal.Mime">module nodal.Mime</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nodal.Mime.charset">
+            function <span class="apidocSignatureSpan">nodal.Mime.</span>charset
+            <span class="apidocSignatureSpan">(type)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nodal.Mime.contentType">
+            function <span class="apidocSignatureSpan">nodal.Mime.</span>contentType
+            <span class="apidocSignatureSpan">(str)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nodal.Mime.extension">
+            function <span class="apidocSignatureSpan">nodal.Mime.</span>extension
+            <span class="apidocSignatureSpan">(type)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nodal.Mime.lookup">
+            function <span class="apidocSignatureSpan">nodal.Mime.</span>lookup
+            <span class="apidocSignatureSpan">(path)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">nodal.Mime.</span>charsets</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">nodal.Mime.</span>extensions</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">nodal.Mime.</span>types</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.nodal.Mime.charsets">module nodal.Mime.charsets</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nodal.Mime.charsets.lookup">
+            function <span class="apidocSignatureSpan">nodal.Mime.charsets.</span>lookup
+            <span class="apidocSignatureSpan">(type)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.nodal.mocha">module nodal.mocha</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nodal.mocha.Test">
+            function <span class="apidocSignatureSpan">nodal.mocha.</span>Test
+            <span class="apidocSignatureSpan">(testRunner)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nodal.mocha.TestRunner">
+            function <span class="apidocSignatureSpan">nodal.mocha.</span>TestRunner
+            <span class="apidocSignatureSpan">(dir, router)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.nodal" id="apidoc.module.nodal">module nodal</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.nodal.Application" id="apidoc.element.nodal.Application">
+        function <span class="apidocSignatureSpan">nodal.</span>Application
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">class Application extends fxn.Application {
+
+  constructor() {
+
+    super(&#x27;Nodal&#x27;);
+
+  }
+
+<span class="apidocCodeCommentSpan">  /**
+  * HTTP Error
+  */
+</span>  error(req, res, start, status, message, err) {
+
+    status = status || 500;
+    message = message || &#x27;Internal Server Error&#x27;;
+
+    let headers = {&#x27;Content-Type&#x27;: &#x27;application/json&#x27;};
+
+    err &#x26;&#x26; console.log(err.stack);
+
+    this.send(
+      req,
+      res,
+      start,
+      status,
+      headers,
+      JSON.stringify(
+        API.error(
+          message,
+          (process.env.NODE_ENV !== &#x27;production&#x27; &#x26;&#x26; err) ?
+            err.stack.split(&#x27;\n&#x27;) : null
+        ),
+        null,
+        2
+      ),
+      message
+    );
+
+  }
+
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.nodal.Controller" id="apidoc.element.nodal.Controller">
+        function <span class="apidocSignatureSpan">nodal.</span>Controller
+        <span class="apidocSignatureSpan">(value)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">class Controller extends fxn.Controller {
+
+<span class="apidocCodeCommentSpan">  /**
+  * Set HTTP status code for this response. If OPTIONS mode, default to 200.
+  * @param {Number} code
+  */
+</span>  status(value) {
+    super.status(this._method === &#x27;OPTIONS&#x27; ? 200 : value);
+    return true;
+  }
+
+  /**
+  * Using API formatting, send an http.ServerResponse indicating there was a Bad Request (400)
+  * @param {string} msg Error message to send
+  * @param {Object} details Any additional details for the error (must be serializable)
+  * @return {boolean}
+  */
+  badRequest(msg, details) {
+    this.status(400);
+    this.render(API.error(msg || &#x27;Bad Request&#x27;, details));
+    return true;
+  }
+
+  /**
+  * Using API formatting, send an http.ServerResponse indicating there was an Unauthorized request (401)
+  * @param {string} msg Error message to send
+  * @param {Object} details Any additional details for the error (must be serializable)
+  * @return {boolean}
+  */
+  unauthorized(msg, details) {
+    this.status(401);
+    this.render(API.error(msg || &#x27;Unauthorized&#x27;, details));
+    return true;
+  }
+
+  /**
+  * Using API formatting, send an http.ServerResponse indicating the requested resource was Not Found (404)
+  * @param {string} msg Error message to send
+  * @param {Object} details Any additional details for the error (must be serializable)
+  * @return {boolean}
+  */
+  notFound(msg, details) {
+    this.status(404);
+    this.render(API.error(msg || &#x27;Not Found&#x27;, details));
+    return true;
+  }
+
+  /**
+  * Endpoint not implemented
+  * @param {string} msg Error message to send
+  * @param {Object} details Any additional details for the error (must be serializable)
+  * @return {boolean}
+  */
+  notImplemented(msg, details) {
+    this.status(501);
+    this.render(API.error(msg  || &#x27;Not Implemented&#x27;, details));
+    return true;
+  }
+
+  /**
+  * Using API formatting, send an http.ServerResponse indicating there were Too Many Requests (429) (i.e. the client is being rate
+ limited)
+  * @param {string} msg Error message to send
+  * @param {Object} details Any additional details for the error (must be serializable)
+  * @return {boolean}
+  */
+  tooManyRequests(msg, details) {
+    this.status(429);
+    this.render(API.error(msg || &#x27;Too Many Requests&#x27;, details));
+    return true;
+  }
+
+  /**
+  * Using API formatting, send a http.ServerResponse error with a specific HTTP response status code
+  * @param {Number} code HTTP response status code
+  * @param {string} msg Response message to send
+  * @param {Object} details Any additional details for the error (must be serializable)
+  * @return {boolean}
+  */
+  statusError(code, msg, details) {
+    this.status(code);
+    this.render(API.error(msg || `${code} Status Code`, details));
+    return true;
+  }
+
+  /**
+  * Using API formatting, send an http.ServerResponse indicating there was an Internal Server Error (500)
+  * @param {string} msg Error message to send
+  * @param {Object} details Any additional details for the error (must be serializable)
+  * @return {boolean}
+  */
+  error(msg, details) {
+    this.status(500);
+    this.render(API.error(msg || &#x27;Internal Server Error&#x27;, details));
+    return true;
+  }
+
+  /**
+  * Using API formatting, generate an error or respond with model / object data.
+  * @param {Error|Object|Array|Nodal.Model|Nodal.ModelArray} data Object to be formatted for API response
+  * @param {optional Array} The interface to use for the data being returned, if not an error.
+  * @return {boolean}
+  */
+  respond(data, arrInterface) {
+
+    if (data instanceof Error) {
+
+      if (data.notFound) {
+        return this.notFound(data.message, data.details);
+      }
+
+      return this.badRequest(data.message, data.details);
+
+    }
+
+    this.render(API.format(data, arrInterface));
+    return true;
+
+  }
+
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.nodal.Daemon" id="apidoc.element.nodal.Daemon">
+        function <span class="apidocSignatureSpan">nodal.</span>Daemon
+        <span class="apidocSignatureSpan">(cpus)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">class Daemon extends fxn.Daemon {
+
+  constructor(cpus) {
+
+    super(&#x27;Nodal&#x27;, cpus);
+
+  }
+
+  error(req, res, err) {
+
+    res.writeHead(500, {&#x27;Content-Type&#x27;: &#x27;text/plain&#x27;});
+
+    res.end(
+      JSON.stringify(
+        API.error(
+          &#x27;Application Error&#x27;,
+          (process.env.NODE_ENV !== &#x27;production&#x27; &#x26;&#x26; err) ?
+            err.stack.split(&#x27;\n&#x27;) : null
+          ),
+        null,
+        2
+      )
+    );
+
+  }
+
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.nodal.Database" id="apidoc.element.nodal.Database">
+        function <span class="apidocSignatureSpan">nodal.</span>Database
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">class Database {
+
+  constructor() {
+
+    this.adapter = null;
+    this._useLogColor = 0;
+
+  }
+
+  connect(cfg) {
+
+    if (typeof cfg === &#x27;string&#x27;) {
+      cfg = {connectionString: cfg};
+    }
+
+    const Adapter = require(ADAPTERS[cfg.adapter] || ADAPTERS[DEFAULT_ADAPTER]);
+    this.adapter = new Adapter(this, cfg);
+
+    return true;
+
+  }
+
+  close(callback) {
+
+    this.adapter.close.apply(this, arguments);
+    callback &#x26;&#x26; callback.call(this);
+    return true;
+
+  }
+
+  log(sql, params, time) {
+
+    let colorFunc = this.__logColorFuncs[this._useLogColor];
+
+    console.log();
+    console.log(colorFunc(sql));
+    params &#x26;&#x26; console.log(colorFunc(JSON.stringify(params)));
+    time &#x26;&#x26; console.log(colorFunc(time + &#x27;ms&#x27;));
+    console.log();
+
+    this._useLogColor = (this._useLogColor + 1) % this.__logColorFuncs.length;
+
+    return true;
+
+  }
+
+  info(message) {
+
+    console.log(colors.green.bold(&#x27;Database Info: &#x27;) + message);
+
+  }
+
+  error(message) {
+
+    console.log(colors.red.bold(&#x27;Database Error: &#x27;) + message);
+    return true;
+
+  }
+
+  query() {
+
+    this.adapter.query.apply(this.adapter, arguments);
+
+  }
+
+  transaction() {
+
+    this.adapter.transaction.apply(this.adapter, arguments);
+
+  }
+
+  drop() {
+
+    this.adapter.drop.apply(this.adapter, arguments);
+
+  }
+
+  create() {
+
+    this.adapter.create.apply(this.adapter, arguments);
+
+  }
+
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.nodal.GraphQuery" id="apidoc.element.nodal.GraphQuery">
+        function <span class="apidocSignatureSpan">nodal.</span>GraphQuery
+        <span class="apidocSignatureSpan">(used for testing)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">class GraphQuery {
+
+<span class="apidocCodeCommentSpan">  /**
+  * Create a GraphQuery object
+  * @param {String} str The query to execute
+  * @param {Number} maxDepth The maximum depth of graph to traverse
+  * @param {Nodal.Model} [Model=null] The Model to base your query around (used for testing)
+  */
+</span>  constructor(str, maxDepth, Model) {
+
+    let parsed = this.constructor.parse(str, maxDepth);
+
+    this.identifier = typeof parsed.structure === &#x27;string&#x27; ?
+      parsed.structure :
+      Object.keys(parsed.structure)[0];
+    this.name = inflect.singularize(this.identifier);
+
+    try {
+      this.Model = Model || require(`${process.cwd()}/app/models/${this.name}.js`);
+    } catch(e) {
+      throw new Error(`Model ${this.name} does not exist.`);
+    }
+
+    this.structure = parsed.structure;
+    this.joins = parsed.joins;
+
+  }
+
+  /**
+  * Create and execute a GraphQuery object
+  * @param {String} str The query to execute
+  * @param {Number} maxDepth The maximum depth of graph to traverse
+  * @param {Function} callback The function to execute upon completion
+  */
+  static query(str, maxDepth, callback) {
+
+    let graphQuery;
+
+    try {
+      graphQuery = new GraphQuery(str, maxDepth);
+    } catch (err) {
+      callback(err);
+      return false;
+    }
+
+    graphQuery.query(callback);
+
+    return true;
+
+  }
+
+  /**
+  * Parse syntax tree of a GraphQL query
+  */
+  static parseSyntaxTree(str, state, arr) {
+
+    arr = arr || [];
+    state = state || &#x27;NAME&#x27;;
+
+    let punc = &#x27;():{},&#x27;;
+    let nameRE = /[_A-Za-z][_0-9A-Za-z]*/;
+
+    const STATES = {
+      &#x27;NAME&#x27;: {
+        skip: false,
+        terminate: true,
+        next: &#x27;PROPERTYLIST&#x27;,
+        func: (str, arr) =&#x3e; {
+
+          let match = str.match(nameRE);
+          let name = match ? match[0] : null;
+
+          arr.push({
+            type: &#x27;field&#x27;,
+            data: {
+              name: name
+            }
+          });
+
+          let len = name ? name.length : 0;
+          return str.substr(len);
+
+        }
+      },
+      &#x27;PROPERTYNAME&#x27;: {
+        skip: false,
+        terminate: true,
+        next: &#x27;PROPERTYVALUESTART&#x27;,
+        func: (str, arr) =&#x3e; {
+
+          let match = str.match(nameRE);
+          let name = match ? match[0] : null;
+
+          arr.push({
+            type: &#x27;property&#x27;,
+            data: {
+              name: name
+            }
+          });
+
+          let len = name ? name.length : 0;
+          return str.substr(len);
+
+        }
+      },
+      &#x27;PROPERTYVALUESTART&#x27;: {
+        skip: false,
+        terminate: false,
+        next: &#x27;PROPERTYVALUE&#x27;,
+        func: (str, arr) =&#x3e; {
+
+          if (str[0] !== &#x27;:&#x27;) {
+            return str;
+          }
+
+          return str.substr(1);
+
+        }
+      },
+      &#x27;PROPERTYVALUE&#x27;: {
+        skip: false,
+        terminate: false,
+        next: &#x27;PROPERTYVALUEEND&#x27;,
+        func: (str, arr) =&#x3e; {
+
+          let cur = arr[arr.length - 1];
+
+          if (str[0] !== &#x27;&#x22;&#x27;) {
+
+            let items = [
+              {str: &#x27;null&#x27;, val: null},
+              {str: &#x27;true&#x27;, val: true},
+              {str: &#x27;false&#x27;, val: false}
+            ];
+
+            for (let i = 0; i &#x3c; items.length; i++) {
+              let item = items[i];
+              if (str.substr(0, item.str.length) === item.str) {
+                cur.data.value = item.val;
+                return str.substr(item.str.length);
+              }
+            }
+
+            let value = str.match(/^[\-\+]?\d+(\.\d+|e[\-\+]?\d+)?/i);
+
+            if (!value) {
+              return str;
+            }
+
+            value = value[0];
+            cur.data.value = parseFloat(value);
+            return str.substr(value.length);
+
+          }
+
+          let i = 1;
+          while (str[i]) {
+
+            if (str[i] === &#x27;&#x22;&#x27;) {
+
+              let n = 1;
+              let c = 0;
+
+              while (str[i - n] === &#x27;\\&#x27;) {
+                c++;
+                n++;
+              }
+
+              if (!(c &#x26; 1)) {
+                cur.data.value = str.substring(1, i);
+                return str.substring(i + 1);
+              }
+
+            }
+
+            i++;
+
+          }
+
+          return str;
+
+        }
+      },
+      &#x27;PROPERTYVALUEEND&#x27;: { ...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.nodal.ItemArray" id="apidoc.element.nodal.ItemArray">
+        function <span class="apidocSignatureSpan">nodal.</span>ItemArray
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">class ItemArray extends Array {
+
+<span class="apidocCodeCommentSpan">  /**
+  * Create the ItemArray
+  */
+</span>  constructor() {
+
+    super();
+    this._meta = {
+      total: 0,
+      offset: 0
+    };
+
+  }
+
+  /**
+  * Convert a normal Array into a ItemArray
+  * @param {Array} arr The array of child objects
+  */
+  static from(arr) {
+
+    let itemArray = new this();
+    itemArray.push.apply(itemArray, arr);
+
+    return itemArray;
+
+  }
+
+  /**
+  * Sets metadata for the modelArray
+  * @param {Object} data values to set
+  */
+  setMeta(data) {
+
+    Object.keys(data).forEach(k =&#x3e; this._meta[k] = data[k]);
+    return this._meta;
+
+  }
+
+  /**
+  * Creates an Array of plain objects from the ModelArray, with properties matching an optional interface
+  * @param {Array} arrInterface Interface to use for object creation for each model
+  */
+  toObject(arrInterface) {
+
+    let keys = [];
+
+    if (this.length) {
+
+      keys = Object.keys(this[0]);
+
+      if (arrInterface &#x26;&#x26; arrInterface.length) {
+        keys = keys.filter(k =&#x3e; (arrInterface.indexOf(k) !== -1));
+      }
+
+    }
+
+    return this.map(m =&#x3e; {
+      return keys.reduce((p, k) =&#x3e; {
+        p[k] = m[k];
+        return p;
+      }, {});
+    });
+
+  }
+
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.nodal.Migration" id="apidoc.element.nodal.Migration">
+        function <span class="apidocSignatureSpan">nodal.</span>Migration
+        <span class="apidocSignatureSpan">(db)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">class Migration {
+
+  constructor(db) {
+
+    if (!db) {
+      throw new Error(&#x27;Migration required valid database instance&#x27;);
+    }
+
+    this.id = null;
+
+    this.db = db;
+
+    this.schema = new SchemaGenerator(db);
+
+  }
+
+  up() {
+
+    return [];
+
+  }
+
+  down() {
+
+    return [];
+
+  }
+
+  executeUp(callback) {
+
+    let schema = this.schema;
+
+    schema.fetch((function(err) {
+
+      if (err) {
+        return callback(err);
+      }
+
+      schema.setMigrationId(this.id);
+
+      let up = this.up().concat([
+        &#x27;INSERT INTO &#x22;schema_migrations&#x22;(&#x22;id&#x22;, &#x22;schema&#x22;) VALUES(&#x27; + this.id + &#x27;, \&#x27;&#x27; + schema.generate() + &#x27;\&#x27;)&#x27;
+      ]);
+
+      this.db.transaction(up.join(&#x27;;&#x27;), function(err) {
+        !err &#x26;&#x26; schema.save();
+        return callback(err);
+      });
+
+    }).bind(this));
+
+  }
+
+  executeDown(callback, prevId) {
+
+    let schema = this.schema;
+
+    schema.fetch((function(err) {
+
+      if (err) {
+        return callback(err);
+      }
+
+      schema.setMigrationId(prevId || null);
+
+      let down = this.down().concat([
+        &#x27;DELETE FROM &#x22;schema_migrations&#x22; WHERE id = &#x27; + this.id
+      ]);
+
+      this.db.transaction(down.join(&#x27;;&#x27;), function(err) {
+        !err &#x26;&#x26; schema.save();
+        callback(err);
+      });
+
+    }).bind(this));
+
+  }
+
+  createTable(table, arrFieldData, modelName) {
+
+    arrFieldData = this.schema.createTable(table, arrFieldData, modelName);
+
+    return this.db.adapter.generateCreateTableQuery(table, arrFieldData);
+
+  }
+
+  dropTable(table) {
+
+    this.schema.dropTable(table);
+
+    return this.db.adapter.generateDropTableQuery(table);
+
+  }
+
+  renameTable(table, newTableName, renameModel, newModelName) {
+
+    let modelSchema = this.schema.renameTable(table, newTableName, renameModel, newModelName);
+
+    return this.db.adapter.generateAlterTableRename(table, newTableName, modelSchema.columns);
+
+  }
+
+  alterColumn(table, column, type, properties) {
+
+    properties = properties || {};
+
+    this.schema.alterColumn(table, column, type, properties);
+
+    return this.db.adapter.generateAlterTableQuery(table, column, type, properties);
+
+  }
+
+  addColumn(table, column, type, properties) {
+
+    properties = properties || {};
+
+    this.schema.addColumn(table, column, type, properties);
+
+    return this.db.adapter.generateAlterTableAddColumnQuery(table, column, type, properties);
+
+  }
+
+  dropColumn(table, column) {
+
+    this.schema.dropColumn(table, column);
+
+    return this.db.adapter.generateAlterTableDropColumnQuery(table, column);
+
+  }
+
+  renameColumn(table, column, newColumn) {
+
+    this.schema.renameColumn(table, column, newColumn);
+
+    return this.db.adapter.generateAlterTableRenameColumnQuery(table, column, newColumn);
+
+  }
+
+  createIndex(table, column, type) {
+
+    this.schema.createIndex(table, column, type);
+
+    return this.db.adapter.generateCreateIndexQuery(table, column, type);
+
+  }
+
+  dropIndex(table, column) {
+
+    this.schema.dropIndex(table, column);
+
+    return this.db.adapter.generateDropIndexQuery(table, column);
+
+  }
+
+  addForeignKey(table, referenceTable) {
+
+    if (this.db.adapter.supportsForeignKey) {
+      this.schema.addForeignKey(table, referenceTable);
+      return this.db.adapter.generateSimpleForeignKeyQuery(table, referenceTable);
+    } else {
+      throw new Error(`${this.db.adapter.constructor.name} does not support foreign keys`);
+    }
+
+  }
+
+  dropForeignKey(table, referenceTable) {
+
+    if (this.db.adapter.supportsForeignKey) {
+      this.schema.dropForeignKey(table, referenceTable);
+      return this.db.adapter.generateDropSimpleForeignKeyQuery(table, referenceTable);
+    } else {
+      throw new Error(`${this.db.adapter.constructor.name} does not support foreign keys`);
+    }
+  }
+
+
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.nodal.Model" id="apidoc.element.nodal.Model">
+        function <span class="apidocSignatureSpan">nodal.</span>Model
+        <span class="apidocSignatureSpan">(modelData, fromStorage, fromSeed)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">class Model {
+
+<span class="apidocCodeCommentSpan">  /**
+  * @param {Object} modelData Data to load into the object
+  * @param {optional boolean} fromStorage Is this model being loaded from storage? Defaults to false.
+  * @param {option boolean} fromSeed Is this model being seeded?
+  */
+</span>  constructor(modelData, fromStorage, fromSeed) {
+
+    modelData = modelData || {};
+
+    this.__initialize__();
+    this.__load__(modelData, fromStorage, fromSeed);
+
+  }
+
+  /**
+  * Finds a model with a provided id, otherwise returns a notFound error.
+  * @param {number} id The id of the model you&#x27;re looking for
+  * @param {function({Error} err, {Nodal.Model} model)} callback The callback to execute upon completion
+  */
+  static find(id, callback) {
+
+    let db = this.prototype.db;
+
+    // legacy support
+    if (arguments.length === 3) {
+      db = arguments[0];
+      id = arguments[1];
+      callback = arguments[2];
+    }
+
+    return new Composer(this)
+      .where({id: id})
+      .end((err, models) =&#x3e; {
+
+        if (!err &#x26;&#x26; !models.length) {
+          let err = new Error(`Could not find ${this.name} with id &#x22;${id}&#x22;.`);
+          err.notFound = true;
+          return callback(err);
+        }
+
+        callback(err, models[0]);
+
+      });
+
+  }
+
+  /**
+  * Finds a model with a provided field, value pair. Returns the first found.
+  * @param {string} field Name of the field
+  * @param {any} value Value of the named field to compare against
+  * @param {function({Error} err, {Nodal.Model} model)} callback The callback to execute upon completion
+  */
+  static findBy(field, value, callback) {
+
+    let db = this.prototype.db;
+    let query = {};
+    query[field] = value;
+
+    return new Composer(this)
+      .where(query)
+      .end((err, models) =&#x3e; {
+
+        if (!err &#x26;&#x26; !models.length) {
+          let err = new Error(`Could not find ${this.name} with ${field} &#x22;${value}&#x22;.`);
+          err.notFound = true;
+          return callback(err);
+        }
+
+        callback(err, models[0]);
+
+      });
+
+  }
+
+  /**
+  * Creates a new model instance using the provided data.
+  * @param {object} data The data to load into the object.
+  * @param {function({Error} err, {Nodal.Model} model)} callback The callback to execute upon completion
+  */
+  static create(data, callback) {
+
+    let model = new this(data);
+    model.save(callback);
+
+  }
+
+  /**
+  * Finds a model with a provided field, value pair. Returns the first found.
+  * @param {string} field Name of the field
+  * @param {object} data Key-value pairs of Model creation data. Will use appropriate value to query for based on &#x22;field&#x22; parametere
+.
+  * @param {function({Error} err, {Nodal.Model} model)} callback The callback to execute upon completion
+  */
+  static findOrCreateBy(field, data, callback) {
+
+    this.findBy(field, data[field], (err, model) =&#x3e; {
+
+      if (err) {
+        if (err.notFound) {
+          return this.create(data, callback);
+        } else {
+          return callback(err);
+        }
+      } else {
+        return callback(null, model);
+      }
+
+    });
+
+  }
+
+  /**
+  * Finds and updates a model with a specified id. Return a notFound error if model does not exist.
+  * @param {number} id The id of the model you&#x27;re looking for
+  * @param {object} data The data to load into the object.
+  * @param {function({Error} err, {Nodal.Model} model)} callback The callback to execute upon completion
+  */
+  static update(id, data, callback) {
+
+    this.find(id, (err, model) =&#x3e; {
+
+      if (err) {
+        return callback(err);
+      }
+
+      model.read(data);
+      model.save(callback);
+
+    });
+
+  }
+
+  /**
+  * Finds and destroys a model with a specified id. Return a notFound error if model does not exist.
+  * @param {number} id The id of the model you&#x27;re looking for
+  * @param {function({Error} err, {Nodal.Model} model)} callback The callback to execute upon completion
+  */
+  static destroy(id, callback) {
+
+    this.find(id, (err, model) =&#x3e; {
+
+      if (err) {
+        return callback(err);
+      }
+
+      model.destroy(callback);
+
+    });
+
+  }
+
+  /**
+  * Creates a new Composer (ORM) instance to begin a new query.
+  * @param {optional Nodal.Databas ...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.nodal.ModelArray" id="apidoc.element.nodal.ModelArray">
+        function <span class="apidocSignatureSpan">nodal.</span>ModelArray
+        <span class="apidocSignatureSpan">(modelConstructor)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">class ModelArray extends ItemArray {
+
+<span class="apidocCodeCommentSpan">  /**
+  * Create the ModelArray with a provided Model to use as a reference.
+  * @param {Array|class Nodal.Model} modelConstructor Must pass the constructor for the type of ModelArray you wish to create.
+  */
+</span>  constructor(modelConstructor) {
+
+    super();
+    this.Model = modelConstructor;
+
+  }
+
+  /**
+  * Convert a normal Array into a ModelArray
+  * @param {Array} arr The array of child objects
+  */
+  static from(arr) {
+
+    if (!arr.length) {
+      throw new Error(&#x27;Cannot create ModelArray from empty Array&#x27;);
+    }
+
+    let modelArray = new this(arr[0].constructor);
+    modelArray.push.apply(modelArray, arr);
+
+    return modelArray;
+
+  }
+
+  /**
+  * Creates an Array of plain objects from the ModelArray, with properties matching an optional interface
+  * @param {Array} arrInterface Interface to use for object creation for each model
+  */
+  toObject(arrInterface) {
+
+    return Array.from(this).map(m =&#x3e; m.toObject(arrInterface));
+
+  }
+
+  /**
+  * Checks if ModelArray has a model in it
+  * @param {Nodal.Model} model
+  */
+  has(model) {
+    return this.filter(m =&#x3e; m.get(&#x27;id&#x27;) === model.get(&#x27;id&#x27;)).length &#x3e; 0;
+  }
+
+  /**
+  * Calls Model#read on each Model in the ModelArray
+  * @param {Object}
+  */
+  readAll(data) {
+    this.forEach(model =&#x3e; model.read(data));
+    return true;
+  }
+
+  /**
+  * Calls Model#set on each Model in the ModelArray
+  * @param {string} field Field to set
+  * @param {any} value Value for the field
+  */
+  setAll(field, value) {
+    this.forEach(model =&#x3e; model.set(field, value));
+    return true;
+  }
+
+  /**
+  * Destroys (deletes) all models in the ModelArray from the database
+  * @param {function} callback Method to invoke upon completion
+  */
+  destroyAll(callback) {
+
+    if (this.filter(m =&#x3e; !m.inStorage()).length) {
+      return callback(new Error(&#x27;Not all models are in storage&#x27;))
+    }
+
+    let db = this.Model.prototype.db;
+
+    let params = this.map(m =&#x3e; m.get(&#x27;id&#x27;));
+    let sql = db.adapter.generateDeleteAllQuery(this.Model.table(), &#x27;id&#x27;, params);
+
+    db.query(
+      sql,
+      params,
+      (err, result) =&#x3e; {
+
+        if (err) {
+          return callback.call(this, new Error(err.message));
+        }
+
+        this.forEach(m =&#x3e; m._inStorage = false);
+
+        callback.call(this, null);
+
+      }
+    );
+
+  }
+
+  /**
+  * Destroys model and cascades all deletes.
+  * @param {function} callback method to run upon completion
+  */
+  destroyCascade(callback) {
+
+    let db = this.Model.prototype.db;
+
+    if (this.filter(m =&#x3e; !m.inStorage()).length) {
+      return callback(new Error(&#x27;Not all models are in storage&#x27;))
+    }
+
+    let params = this.map(m =&#x3e; m.get(&#x27;id&#x27;));
+    let txn = [[db.adapter.generateDeleteAllQuery(this.Model.table(), &#x27;id&#x27;, params), params]];
+
+    let children = this.Model.relationships().cascade();
+    txn = txn.concat(
+      children.map(p =&#x3e; {
+        return [db.adapter.generateDeleteAllQuery(p.getModel().table(), &#x27;id&#x27;, params, p.joins(null, this.Model.table())), params
+];
+      })
+    ).reverse();
+
+    db.transaction(
+      txn,
+      (err, result) =&#x3e; {
+
+        if (err) {
+          return callback(err);
+        }
+
+        this.forEach(m =&#x3e; m._inStorage = false);
+
+        callback(null);
+
+      }
+    );
+
+  }
+
+  /**
+  * Saves / updates all models in the ModelArray. Uses beforeSave / afterSave. Will return an error and rollback if *any* model
+errors out.
+  * @param {function} callback returning the error and reference to self
+  */
+  saveAll(callback) {
+
+    if (!this.length) {
+      return callback.call(this, null, this);
+    }
+
+    async.series(
+      this.map(m =&#x3e; m.beforeSave.bind(m)),
+      err =&#x3e; {
+
+        if (err) {
+          return callback(err);
+        }
+
+        this.__saveAll__(err =&#x3e; {
+
+          if (err) {
+            return callback(err, this);
+          }
+
+          async.series(
+            this.map(m =&#x3e; m.afterSave.bind(m)),
+            err =&#x3e; callback(err || null, this)
+          );
+
+        });
+
+      }
+    );
+
+  }
+
+  /**
+  * save all models (outside of beforeSave / afterSave)
+  * @param {function} callback Called with error, if applica ...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.nodal.ModelFactory" id="apidoc.element.nodal.ModelFactory">
+        function <span class="apidocSignatureSpan">nodal.</span>ModelFactory
+        <span class="apidocSignatureSpan">(modelConstructor)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">class ModelFactory {
+
+<span class="apidocCodeCommentSpan">  /**
+  * Create the ModelFactory with a provided Model to use as a reference.
+  * @param {Nodal.Model} modelConstructor Must pass the constructor for the type of ModelFactory you wish to create.
+  */
+</span>  constructor(modelConstructor) {
+
+    this.Model = modelConstructor;
+
+  }
+
+  /**
+  * Loads all model constructors in your ./app/models directory into an array
+  * @return {Array} Array of model Constructors
+  */
+  static loadModels() {
+
+    let dir = &#x27;./app/models&#x27;;
+    if (!fs.existsSync(dir)) {
+      return [];
+    }
+
+    return fs
+      .readdirSync(dir)
+      .filter(filename =&#x3e; filename.indexOf(&#x27;.&#x27;) !== 0)
+      .map(filename =&#x3e; require(`${process.cwd()}/app/models/${filename}`))
+
+  }
+
+  /**
+  * Creates new factories from a supplied array of Models, loading in data keyed by Model name
+  * @param {Array} Models Array of model constructors you wish to reference
+  * @param {Object} objModelData Keys are model names, values are arrays of model data you wish to create
+  * @param {Function} callback What to execute upon completion
+  */
+  static createFromModels(Models, objModelData, callback) {
+
+    if (objModelData instanceof Array) {
+      async.series(
+        objModelData.map(objModelData =&#x3e; callback =&#x3e; this.createFromModels(Models, objModelData, callback)),
+        (err, results) =&#x3e; {
+          results = (results || []).reduce((results, res) =&#x3e; {
+            return results.concat(res);
+          }, []);
+          callback(err || null, results);
+        }
+      );
+      return;
+    }
+
+    async.parallel(
+      Models
+        .filter(Model =&#x3e; objModelData[Model.name] &#x26;&#x26; objModelData[Model.name].length)
+        .map(Model =&#x3e; callback =&#x3e; new this(Model).create(objModelData[Model.name], callback)),
+      (err, results) =&#x3e; callback(err || null, results)
+    );
+
+  }
+
+  /**
+  * Populates a large amount of model data from an Object.
+  * @param {Array} Models Array of Model constructors
+  */
+  static populate(objModelData, callback) {
+
+    return this.createFromModels(this.loadModels(), objModelData, callback);
+
+  }
+
+  /**
+  * Creates models from an array of Objects containing the model data
+  * @param {Array} arrModelData Array of objects to create model data from
+  */
+  create(arrModelData, callback) {
+
+    // new this.Model(data, false, true) is telling the Model that this is from a seed
+
+    ModelArray
+      .from(arrModelData.map(data =&#x3e; {
+        return new this.Model(data, false, true);
+      }))
+      .saveAll(callback);
+
+  }
+
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.nodal.RelationshipGraph" id="apidoc.element.nodal.RelationshipGraph">
+        function <span class="apidocSignatureSpan">nodal.</span>RelationshipGraph
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">class RelationshipGraph {
+
+  constructor() {
+    this.nodes = [];
+    this.edges = [];
+  }
+
+  of(Model) {
+
+    let node = this.nodes.filter(n =&#x3e; n.Model === Model).pop();
+    if (!node) {
+      node = new RelationshipNode(this, Model);
+      this.nodes.push(node);
+    }
+
+    return node;
+
+  }
+
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.nodal.Router" id="apidoc.element.nodal.Router">
+        function <span class="apidocSignatureSpan">nodal.</span>Router
+        <span class="apidocSignatureSpan">{{signature}}</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">class Router extends fxn.Router {}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.nodal.Scheduler" id="apidoc.element.nodal.Scheduler">
+        function <span class="apidocSignatureSpan">nodal.</span>Scheduler
+        <span class="apidocSignatureSpan">{{signature}}</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">class Scheduler extends fxn.Scheduler {}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.nodal.SchemaGenerator" id="apidoc.element.nodal.SchemaGenerator">
+        function <span class="apidocSignatureSpan">nodal.</span>SchemaGenerator
+        <span class="apidocSignatureSpan">(db)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">class SchemaGenerator {
+
+  constructor(db) {
+
+    this.db = db;
+
+    this.migrationId = null;
+    this.models = {};
+    this.indices = [];
+
+    this._defaultPath = &#x27;db/schema.json&#x27;;
+
+  }
+
+  load(filename) {
+    filename = filename || this._defaultPath;
+    filename = process.cwd() + &#x27;/&#x27; + filename;
+    return this.read(fs.readFileSync(filename));
+  }
+
+  fetch(callback) {
+
+    this.db.query(&#x27;SELECT &#x22;schema_migrations&#x22;.&#x22;schema&#x22; FROM &#x22;schema_migrations&#x22; ORDER BY &#x22;id&#x22; DESC LIMIT 1&#x27;, [], (function(err,
+result) {
+
+      if (err) {
+        return callback(err);
+      }
+
+      result.rows &#x26;&#x26; result.rows.length &#x26;&#x26; this.read(result.rows[0].schema);
+
+      callback(null);
+
+    }).bind(this));
+
+  }
+
+  save(filename) {
+    filename = filename || this._defaultPath;
+    filename = process.cwd() + &#x27;/&#x27; + filename;
+    fs.writeFileSync(filename, this.generate());
+    return true;
+  }
+
+  mergeProperties(columnData, properties) {
+
+    properties = properties || {};
+
+    let defaults = this.db.adapter.typePropertyDefaults;
+
+    let oldProperties = this.db.adapter.getTypeProperties(columnData.type, columnData.properties) || {};
+    let newProperties = {};
+
+    this.db.adapter.typeProperties.forEach(function(v) {
+      if (properties.hasOwnProperty(v) &#x26;&#x26; properties[v] !== defaults[v]) {
+        newProperties[v] = properties[v];
+      } else if (oldProperties.hasOwnProperty(v) &#x26;&#x26; oldProperties[v] !== defaults[v]) {
+        newProperties[v] = oldProperties[v];
+      }
+    });
+
+    columnData.properties = newProperties;
+
+    return columnData;
+
+  }
+
+  set(schema) {
+
+    this.setMigrationId(schema.migration_id);
+    this.models = schema.models || {};
+    this.indices = schema.indices || [];
+
+    return true;
+
+  }
+
+  setMigrationId(id) {
+    this.migrationId = id;
+  }
+
+  findClass(table) {
+
+    let models = this.models;
+    return Object.keys(models).filter(function(v) {
+      return models[v].table === table;
+    }).pop();
+
+  }
+
+  createTable(table, arrColumnData, modelName) {
+
+    let tableClass = modelName || inflect.classify(table);
+
+    if (this.models[tableClass]) {
+      throw new Error(&#x27;Model with name &#x22;&#x27; + tableClass + &#x27;&#x22; already exists in your schema&#x27;);
+    }
+
+    if (this.findClass(table)) {
+      throw new Error(&#x27;Table with name &#x22;&#x27; + table + &#x27;&#x22; already exists in your schema.&#x27;);
+    }
+
+    arrColumnData = arrColumnData.slice();
+
+    let columns = arrColumnData.map(function(v) {
+      return v.name;
+    });
+
+    if (columns.indexOf(&#x27;id&#x27;) === -1) {
+      arrColumnData.unshift({name: &#x27;id&#x27;, type: &#x27;serial&#x27;});
+    }
+
+    if (columns.indexOf(&#x27;created_at&#x27;) === -1) {
+      arrColumnData.push({name:&#x27;created_at&#x27;, type: &#x27;datetime&#x27;});
+    }
+
+    if (columns.indexOf(&#x27;updated_at&#x27;) === -1) {
+      arrColumnData.push({name:&#x27;updated_at&#x27;, type: &#x27;datetime&#x27;});
+    }
+
+    let defaults = this.db.adapter.typePropertyDefaults;
+
+    arrColumnData.forEach((function(columnData) {
+      this.mergeProperties(columnData);
+    }).bind(this));
+
+    this.models[tableClass] = {
+      table: table,
+      columns: arrColumnData
+    };
+
+    return arrColumnData;
+
+  }
+
+  dropTable(table) {
+
+    let tableClass = this.findClass(table);
+
+    if (!tableClass) {
+      throw new Error(&#x27;Table &#x22;&#x27; + table + &#x27;&#x22; does not exist in your schema&#x27;);
+    }
+
+    delete this.models[tableClass];
+
+    return true;
+
+  }
+
+  renameTable(table, newTableName, renameModel, newModelName) {
+
+    let tableClass = this.findClass(table);
+
+    if (!tableClass) {
+      throw new Error(&#x27;Table &#x22;&#x27; + table + &#x27;&#x22; does not exist in your schema&#x27;);
+    }
+
+    this.models[tableClass].table = newTableName;
+
+    if (renameModel) {
+      let newClass = newModelName || inflect.classify(newTableName);
+      this.models[newClass] = this.models[tableClass];
+      delete this.models[tableClass];
+      tableClass = newClass;
+    }
+
+    return this.models[tableClass];
+
+  }
+
+  alterColumn(table, column, type, properties) {
+
+    if (properties.primary_key) {
+      delete properties.unique;
+    }
+
+    let models = this.models;
+    let modelKey = Object.keys(models).filter(function(t) {
+      return models[t].table === table;
+    } ...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.nodal.require" id="apidoc.element.nodal.require">
+        function <span class="apidocSignatureSpan">nodal.</span>require
+        <span class="apidocSignatureSpan">(filename)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">require = function (filename) {
+  return require(process.cwd() + &#x27;/&#x27; + filename);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.nodal.Mime" id="apidoc.module.nodal.Mime">module nodal.Mime</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.nodal.Mime.charset" id="apidoc.element.nodal.Mime.charset">
+        function <span class="apidocSignatureSpan">nodal.Mime.</span>charset
+        <span class="apidocSignatureSpan">(type)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function charset(type) {
+  if (!type || typeof type !== &#x27;string&#x27;) {
+    return false
+  }
+
+  // TODO: use media-typer
+  var match = extractTypeRegExp.exec(type)
+  var mime = match &#x26;&#x26; db[match[1].toLowerCase()]
+
+  if (mime &#x26;&#x26; mime.charset) {
+    return mime.charset
+  }
+
+  // default text/* to utf-8
+  if (match &#x26;&#x26; textTypeRegExp.test(match[1])) {
+    return &#x27;UTF-8&#x27;
+  }
+
+  return false
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.nodal.Mime.contentType" id="apidoc.element.nodal.Mime.contentType">
+        function <span class="apidocSignatureSpan">nodal.Mime.</span>contentType
+        <span class="apidocSignatureSpan">(str)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function contentType(str) {
+  // TODO: should this even be in this module?
+  if (!str || typeof str !== &#x27;string&#x27;) {
+    return false
+  }
+
+  var mime = str.indexOf(&#x27;/&#x27;) === -1
+    ? exports.lookup(str)
+    : str
+
+  if (!mime) {
+    return false
+  }
+
+  // TODO: use content-type or other module
+  if (mime.indexOf(&#x27;charset&#x27;) === -1) {
+    var charset = exports.charset(mime)
+    if (charset) mime += &#x27;; charset=&#x27; + charset.toLowerCase()
+  }
+
+  return mime
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.nodal.Mime.extension" id="apidoc.element.nodal.Mime.extension">
+        function <span class="apidocSignatureSpan">nodal.Mime.</span>extension
+        <span class="apidocSignatureSpan">(type)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function extension(type) {
+  if (!type || typeof type !== &#x27;string&#x27;) {
+    return false
+  }
+
+  // TODO: use media-typer
+  var match = extractTypeRegExp.exec(type)
+
+  // get extensions
+  var exts = match &#x26;&#x26; exports.extensions[match[1].toLowerCase()]
+
+  if (!exts || !exts.length) {
+    return false
+  }
+
+  return exts[0]
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.nodal.Mime.lookup" id="apidoc.element.nodal.Mime.lookup">
+        function <span class="apidocSignatureSpan">nodal.Mime.</span>lookup
+        <span class="apidocSignatureSpan">(path)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function lookup(path) {
+  if (!path || typeof path !== &#x27;string&#x27;) {
+    return false
+  }
+
+  // get the extension (&#x22;ext&#x22; or &#x22;.ext&#x22; or full path)
+  var extension = extname(&#x27;x.&#x27; + path)
+    .toLowerCase()
+    .substr(1)
+
+  if (!extension) {
+    return false
+  }
+
+  return exports.types[extension] || false
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.nodal.Mime.charsets" id="apidoc.module.nodal.Mime.charsets">module nodal.Mime.charsets</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.nodal.Mime.charsets.lookup" id="apidoc.element.nodal.Mime.charsets.lookup">
+        function <span class="apidocSignatureSpan">nodal.Mime.charsets.</span>lookup
+        <span class="apidocSignatureSpan">(type)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function charset(type) {
+  if (!type || typeof type !== &#x27;string&#x27;) {
+    return false
+  }
+
+  // TODO: use media-typer
+  var match = extractTypeRegExp.exec(type)
+  var mime = match &#x26;&#x26; db[match[1].toLowerCase()]
+
+  if (mime &#x26;&#x26; mime.charset) {
+    return mime.charset
+  }
+
+  // default text/* to utf-8
+  if (match &#x26;&#x26; textTypeRegExp.test(match[1])) {
+    return &#x27;UTF-8&#x27;
+  }
+
+  return false
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.nodal.mocha" id="apidoc.module.nodal.mocha">module nodal.mocha</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.nodal.mocha.Test" id="apidoc.element.nodal.mocha.Test">
+        function <span class="apidocSignatureSpan">nodal.mocha.</span>Test
+        <span class="apidocSignatureSpan">(testRunner)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">class Test {
+
+  constructor(testRunner) {
+
+    this._data = {};
+    this.testRunner = testRunner;
+    Object.defineProperty(this, &#x27;router&#x27;, {get: () =&#x3e; this.testRunner.router});
+
+  }
+
+  __test__(verb) {
+
+    describe(this.constructor.name, () =&#x3e; {
+
+      this.before &#x26;&#x26; before(done =&#x3e; this.before(done));
+      this.after &#x26;&#x26; after(done =&#x3e; this.after(done));
+
+      this.test(verb);
+
+    });
+
+  }
+
+  set(key, value) {
+    return this._data[key] = value;
+  }
+
+  unset(key) {
+    delete this._data[key];
+  }
+
+  get(key, defaultValue) {
+    return this._data.hasOwnProperty(key) ? this._data[key] : defaultValue;
+  }
+
+  test() {}
+
+<span class="apidocCodeCommentSpan">  /**
+  * Creates a new MockRequest object (emulates an HTTP request)
+  * @param {string} path The path you wish to hit
+  * @param {Object} query The query parameters you wish to pass
+  * @return {Nodal.EndpointRequest}
+  */
+</span>  endpoint(path, query) {
+
+    return new EndpointRequest(this.router, path, query);
+
+  }
+
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.nodal.mocha.TestRunner" id="apidoc.element.nodal.mocha.TestRunner">
+        function <span class="apidocSignatureSpan">nodal.mocha.</span>TestRunner
+        <span class="apidocSignatureSpan">(dir, router)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">class TestRunner {
+
+  constructor(dir, router) {
+
+    this.dir = dir;
+    this.router = router;
+
+  }
+
+  tests() {
+
+    let tests = [];
+    let filter;
+
+    if (process.argv.length &#x3e; 3) {
+      filter = process.argv[3];
+      filter = filter.endsWith(&#x27;.js&#x27;) ? filter : `${filter}.js`;
+    }
+
+    let addTest = dir =&#x3e; {
+
+      return filename =&#x3e; {
+
+        if (!path.extname(filename) &#x26;&#x26; filename[0] !== &#x27;.&#x27;) {
+
+          let nextDir = path.resolve(dir, filename);
+          return fs.readdirSync(nextDir).forEach(addCommand(nextDir));
+
+        }
+
+        if (filter &#x26;&#x26; filename !== filter) {
+          return;
+        }
+
+        let Test = require(path.resolve(dir, filename));
+        tests.push(new Test(this));
+
+      }
+
+    };
+
+    let testDir = path.resolve(process.cwd(), this.dir || &#x27;/&#x27;);
+    fs.readdirSync(testDir).forEach(addTest(testDir));
+
+    return tests;
+
+  }
+
+  start(verb) {
+
+    this.tests().forEach(t =&#x3e; {
+
+      t.__test__(verb);
+
+    });
+
+  }
+
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
