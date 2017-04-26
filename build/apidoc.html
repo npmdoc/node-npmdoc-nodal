@@ -222,6 +222,12 @@
 
         <li>
 
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">nodal.</span>credentials</span>
+
+        </li>
+
+        <li>
+
             <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">nodal.</span>env</span>
 
         </li>
@@ -241,6 +247,12 @@
         <li>
 
             <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">nodal.</span>my</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">nodal.</span>utilities</span>
 
         </li>
 
@@ -317,6 +329,28 @@
 
     </ol></li>
 
+    <li class="apidocModuleLi"><a href="#apidoc.module.nodal.credentials">module nodal.credentials</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nodal.credentials.read">
+            function <span class="apidocSignatureSpan">nodal.credentials.</span>read
+            <span class="apidocSignatureSpan">(key)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nodal.credentials.write">
+            function <span class="apidocSignatureSpan">nodal.credentials.</span>write
+            <span class="apidocSignatureSpan">(key, value)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
     <li class="apidocModuleLi"><a href="#apidoc.module.nodal.mocha">module nodal.mocha</a><ol>
 
         <li>
@@ -333,6 +367,46 @@
             <a class="apidocElementLiA" href="#apidoc.element.nodal.mocha.TestRunner">
             function <span class="apidocSignatureSpan">nodal.mocha.</span>TestRunner
             <span class="apidocSignatureSpan">(dir, router)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.nodal.utilities">module nodal.utilities</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nodal.utilities.getFunctionParameters">
+            function <span class="apidocSignatureSpan">nodal.utilities.</span>getFunctionParameters
+            <span class="apidocSignatureSpan">(fn)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nodal.utilities.isObject">
+            function <span class="apidocSignatureSpan">nodal.utilities.</span>isObject
+            <span class="apidocSignatureSpan">(value)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nodal.utilities.parseRegexFromString">
+            function <span class="apidocSignatureSpan">nodal.utilities.</span>parseRegexFromString
+            <span class="apidocSignatureSpan">(str)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nodal.utilities.parseSize">
+            function <span class="apidocSignatureSpan">nodal.utilities.</span>parseSize
+            <span class="apidocSignatureSpan">(size)</span>
             </a>
 
         </li>
@@ -393,7 +467,23 @@
   }
 
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  if (cluster.isMaster) {
+
+    const daemon = Nodal.require(&#x27;app/daemon.js&#x27;);
+    daemon.start(Nodal.my.Config.secrets.PORT);
+
+  } else {
+
+    const app = new Nodal.<span class="apidocCodeKeywordSpan">Application</span>();
+    app.listen(Nodal.my.Config.secrets.PORT);
+
+
+  }
+
+})();
+```
+...</pre></li>
     </ul>
 
 
@@ -565,7 +655,22 @@
   }
 
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+&#x27;use strict&#x27;;
+
+const Nodal = require(&#x27;nodal&#x27;);
+const cluster = require(&#x27;cluster&#x27;);
+
+if (cluster.isMaster) {
+
+const daemon = new Nodal.<span class="apidocCodeKeywordSpan">Daemon</span>();
+daemon.start(Nodal.my.Config.secrets.port);
+
+} else {
+
+const app = new Nodal.Application();
+app.listen(Nodal.my.Config.secrets.port);
+...</pre></li>
     </ul>
 
 
@@ -661,7 +766,20 @@
   }
 
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+
+
+
+&#x27;use strict&#x27;;
+
+const Nodal = require(&#x27;nodal&#x27;);
+const db = new Nodal.<span class="apidocCodeKeywordSpan">Database</span>();
+
+db.connect(Nodal.my.Config.db.main);
+
+module.exports = db;
+...</pre></li>
     </ul>
 
 
@@ -1293,7 +1411,23 @@
   /**
   * Creates a new Composer (ORM) instance to begin a new query.
   * @param {optional Nodal.Databas ...</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+    rows.forEach(row =&#x3e; {
+
+let model = mainCache[row.id];
+
+if (!model) {
+
+  model = mainCache[row.id] = new this.<span class="apidocCodeKeywordSpan">Model</span>(columns.reduce((obj, k) =&#x3e; {
+    obj[k] = row[k];
+    return obj;
+  }, columnsObject), true);
+
+  models.push(model);
+
+}
+...</pre></li>
     </ul>
 
 
@@ -1485,7 +1619,23 @@ errors out.
   /**
   * save all models (outside of beforeSave / afterSave)
   * @param {function} callback Called with error, if applica ...</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+});
+
+p.setJoined(&#x27;pets&#x27;, Nodal.ModelArray.from(pets));
+
+let partner = new Partner({parent_id: id, name: `Partner${i}`, job: [&#x27;Plumber&#x27;, &#x27;Engineer&#x27;, &#x27;Nurse&#x27
+;][(Math.random() * 3) | 0]});
+p.setJoined(&#x27;partner&#x27;, partner);
+
+let friendships = new Nodal.<span class="apidocCodeKeywordSpan">ModelArray</span>(Friendship);
+while (i--) {
+  let friendship = new Friendship({from_parent_id: id, to_parent_id: i + 1});
+  friendships.push(friendship);
+}
+
+p.setJoined(&#x27;outgoingFriendships&#x27;, friendships);
+...</pre></li>
     </ul>
 
 
@@ -1584,7 +1734,23 @@ errors out.
   }
 
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+});
+
+    });
+
+    describe(&#x27;ModelFactory&#x27;, () =&#x3e; {
+
+      let ParentFactory = new Nodal.<span class="apidocCodeKeywordSpan">ModelFactory</span>(Parent);
+      let HouseFactory = new Nodal.ModelFactory(House);
+
+      it(&#x27;should not save all parents with verification errors&#x27;, (done) =&#x3e; {
+
+ParentFactory.create([
+  {name: &#x27;Kate&#x27;},
+  {name: &#x27;Sayid&#x27;},
+...</pre></li>
     </ul>
 
 
@@ -1616,7 +1782,23 @@ errors out.
   }
 
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+  const async = require(&#x27;async&#x27;);
+
+  let expect = require(&#x27;chai&#x27;).expect;
+
+  describe(&#x27;Nodal.RelationshipGraph&#x27;, function() {
+
+let Relationships = new Nodal.<span class="apidocCodeKeywordSpan">RelationshipGraph</span>();
+
+class User extends Nodal.Model {}
+class Post extends Nodal.Model {}
+class Comment extends Nodal.Model {}
+class Avatar extends Nodal.Model {}
+
+Relationships.of(Post).joinsTo(User, {multiple: true});
+...</pre></li>
     </ul>
 
 
@@ -1629,7 +1811,23 @@ errors out.
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">class Router extends fxn.Router {}</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+```javascript
+module.exports = (function() {
+
+&#x27;use strict&#x27;;
+
+const Nodal = require(&#x27;nodal&#x27;);
+const router = new Nodal.<span class="apidocCodeKeywordSpan">Router</span>();
+
+/* Middleware */
+/* executed *before* Controller-specific middleware */
+
+const CORSMiddleware = Nodal.require(&#x27;middleware/cors_middleware.js&#x27;);
+// const ForceWWWMiddleware = Nodal.require(&#x27;middleware/force_www_middleware.js&#x27;);
+// const ForceHTTPSMiddleware = Nodal.require(&#x27;middleware/force_https_middleware.js&#x27;);
+...</pre></li>
     </ul>
 
 
@@ -1642,7 +1840,22 @@ errors out.
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">class Scheduler extends fxn.Scheduler {}</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+
+
+
+&#x27;use strict&#x27;;
+
+const Nodal = require(&#x27;nodal&#x27;);
+const scheduler = new Nodal.<span class="apidocCodeKeywordSpan">Scheduler</span>();
+
+/* generator: begin imports */
+
+const DummyTask = Nodal.require(&#x27;tasks/dummy_task.js&#x27;);
+
+/* generator: end imports */
+...</pre></li>
     </ul>
 
 
@@ -1849,8 +2062,27 @@ result) {
     <li>description and source-code<pre class="apidocCodePre">require = function (filename) {
   return require(process.cwd() + &#x27;/&#x27; + filename);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  &#x27;use strict&#x27;;
+
+  const Nodal = require(&#x27;nodal&#x27;);
+  const cluster = require(&#x27;cluster&#x27;);
+
+  if (cluster.isMaster) {
+
+const daemon = Nodal.<span class="apidocCodeKeywordSpan">require</span>(&#x27;app/daemon.js&#x27;);
+daemon.start(Nodal.my.Config.secrets.PORT);
+
+  } else {
+
+const app = new Nodal.Application();
+app.listen(Nodal.my.Config.secrets.PORT);
+...</pre></li>
     </ul>
+
+
+
+
 
 
 
@@ -2043,6 +2275,80 @@ result) {
 </div>
 
 <div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.nodal.credentials" id="apidoc.module.nodal.credentials">module nodal.credentials</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.nodal.credentials.read" id="apidoc.element.nodal.credentials.read">
+        function <span class="apidocSignatureSpan">nodal.credentials.</span>read
+        <span class="apidocSignatureSpan">(key)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">(key) =&#x3e; {
+
+  return readCredentials()[key];
+
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  let cache = r.updateResult.rows.reduce((cache, obj) =&#x3e; {
+    cache[obj.id] = obj;
+    return cache;
+  }, {});
+
+  models.forEach(m =&#x3e; {
+    let data = cache[m.get(&#x27;id&#x27;)];
+    data &#x26;&#x26; m.<span class="apidocCodeKeywordSpan">read</span>(data);
+  });
+
+}
+
+models.setMeta({offset: offset, total: total});
+callback.call(this, err, models);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.nodal.credentials.write" id="apidoc.element.nodal.credentials.write">
+        function <span class="apidocSignatureSpan">nodal.credentials.</span>write
+        <span class="apidocSignatureSpan">(key, value)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">(key, value) =&#x3e; {
+
+  let cred = readCredentials();
+  cred[key] = value;
+  writeCredentials(cred);
+  return true;
+
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  let t = new Date().valueOf();
+  let length = 50;
+  let barSize = 10;
+  let emptyChar = &#x27;-&#x27;;
+  let barChar = &#x27;=&#x27;;
+  let i = 0;
+  let progress = setInterval(() =&#x3e; {
+    process.stdout.<span class="apidocCodeKeywordSpan">write</span>(`\r[${emptyChar.repeat(i % length)}${barChar.repeat(barSize)}${
+emptyChar.repeat(length - (i % length) - 1)}]`);
+    i++;
+  }, 50);
+  return () =&#x3e; {
+    clearInterval(progress);
+    process.stdout.write(`\rDeployed in ${((new Date().valueOf() - t) / 1000) | 0} seconds!${&#x27; &#x27;.repeat(length)}\n`);
+  };
+})();
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
 <h1><a href="#apidoc.module.nodal.mocha" id="apidoc.module.nodal.mocha">module nodal.mocha</a></h1>
 
 
@@ -2172,6 +2478,153 @@ result) {
     });
 
   }
+
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.nodal.utilities" id="apidoc.module.nodal.utilities">module nodal.utilities</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.nodal.utilities.getFunctionParameters" id="apidoc.element.nodal.utilities.getFunctionParameters">
+        function <span class="apidocSignatureSpan">nodal.utilities.</span>getFunctionParameters
+        <span class="apidocSignatureSpan">(fn)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">(fn) =&#x3e; {
+  return fn.toString()
+    .replace(/\/\*.*?\*\//g, &#x27;&#x27;)
+    .replace(/\s+/g, &#x27;&#x27;)
+    .replace(/^function.*?(\(.*?\)).*/gi, &#x27;$1&#x27;)
+    .replace(/^(.*?)=&#x3e;.*/g, &#x27;$1&#x27;)
+    .replace(/^\(?(.*?)\)?$/g, &#x27;$1&#x27;)
+    .split(&#x27;,&#x27;)
+    .filter(v =&#x3e; !!v);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+let query = this.__generateQuery__([&#x27;id&#x27;], true);
+let columns = Object.keys(fields);
+let params = columns.map(c =&#x3e; fields[c]);
+
+let columnNames = columns.filter((v, i) =&#x3e; typeof params[i] !== &#x27;function&#x27;);
+let columnFunctions = columns
+  .filter((v, i) =&#x3e; typeof params[i] === &#x27;function&#x27;)
+  .map((v, i) =&#x3e; [v, utilities.<span class="apidocCodeKeywordSpan">getFunctionParameters</span>(params[i]), params[i]]);
+
+params = params.filter(v =&#x3e; typeof v !== &#x27;function&#x27;);
+
+query.sql = this.db.adapter.generateUpdateAllQuery(
+  this.Model.table(),
+  &#x27;id&#x27;,
+  columnNames,
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.nodal.utilities.isObject" id="apidoc.element.nodal.utilities.isObject">
+        function <span class="apidocSignatureSpan">nodal.utilities.</span>isObject
+        <span class="apidocSignatureSpan">(value)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">isObject(value) {
+  return typeof value === &#x27;object&#x27; &#x26;&#x26;
+    {}.toString.call(value) === &#x27;[object Object]&#x27;;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+      }
+    }
+  }
+
+  // If we have an object value (json), do a deterministic diff using
+  // node-deep-equals
+  // NOTE: Lets do an extra deep object test
+  if ( utilities.<span class="apidocCodeKeywordSpan">isObject</span>(value) ) {
+    changed = !deepEqual( curValue, value, { strict: true});
+  }
+
+}
+
+this._data[field] = value;
+this._changed[field] = changed;
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.nodal.utilities.parseRegexFromString" id="apidoc.element.nodal.utilities.parseRegexFromString">
+        function <span class="apidocSignatureSpan">nodal.utilities.</span>parseRegexFromString
+        <span class="apidocSignatureSpan">(str)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">(str) =&#x3e; {
+
+  let names = [];
+  let replacements = [];
+
+  if (str[str.length - 1] === &#x27;/&#x27;) {
+    str = str.substr(0, str.length - 1);
+  }
+
+  str = str.replace(/(\{(\w+?)\}|(\*))/g, (m, all, name) =&#x3e; {
+    names.push(name);
+    replacements.push((all === &#x27;*&#x27; ? &#x27;(.*?)&#x27; : &#x27;([^\/]+?)&#x27;));
+    return `\{${replacements.length - 1}\}`;
+  });
+
+  str = str.replace(/\/\{([^\/]*?)\}$/g, (m, i) =&#x3e; {
+    replacements[i | 0] = `(?:\/${replacements[i | 0]})?`;
+    return `\{${i | 0}\}`;
+  });
+
+  let final = str.replace(/\{(.*?)\}/g, (m, i) =&#x3e; {
+    return replacements[i | 0];
+  });
+
+  return {
+    regex: new RegExp(`^${final}/?$`),
+    names: names
+  };
+
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.nodal.utilities.parseSize" id="apidoc.element.nodal.utilities.parseSize">
+        function <span class="apidocSignatureSpan">nodal.utilities.</span>parseSize
+        <span class="apidocSignatureSpan">(size)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">parseSize(size) {
+
+  size = (size || &#x27;&#x27;) + &#x27;&#x27;;
+
+  let match = size.match(/^(\d+(?:\.\d+)?)([kMG]?)B?$/);
+
+  if (!match) {
+    return 0;
+  }
+
+  let num = parseFloat(match[1]);
+  let mag = match[2];
+
+  num = num * {&#x27;&#x27;: 1, &#x27;k&#x27;: 1024, &#x27;M&#x27;: 1024 * 1024, &#x27;G&#x27;: 1024 * 1024 * 1024}[mag];
+
+  return Math.ceil(num) || 0;
 
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
