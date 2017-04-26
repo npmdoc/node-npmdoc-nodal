@@ -1,6 +1,6 @@
 # npmdoc-nodal
 
-#### api documentation for  [nodal (v0.13.4)](https://github.com/keithwhor/nodal)  [![npm package](https://img.shields.io/npm/v/npmdoc-nodal.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-nodal) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-nodal.svg)](https://travis-ci.org/npmdoc/node-npmdoc-nodal)
+#### basic api documentation for  [nodal (v0.13.4)](https://github.com/keithwhor/nodal)  [![npm package](https://img.shields.io/npm/v/npmdoc-nodal.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-nodal) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-nodal.svg)](https://travis-ci.org/npmdoc/node-npmdoc-nodal)
 
 #### An API Server and Framework for node.js
 
